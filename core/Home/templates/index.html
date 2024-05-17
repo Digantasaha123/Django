@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django template Engine</title>
+    <h1>This page is loaded through django Server</h1>
+    <style>
+        table, th,td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h2>Hello I am Diganta <br>Trying to learn Django from Scratch</h2>
+    <h3>Here I am just a <b><h1>Begginer</h1></b></h3>
+    <h1>Let me try to use a table to fetch data from backend</h1>
+    {% comment %}  django er data print korte {{}} eta use korte hoy after adding context {% endcomment %}
+    <table>
+        <tr>
+          <th>S.no</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Favourite Passtime</th>
+          <th>Can vote</th>
+        </tr>
+        {% for people in peoples %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{people.name}}</td>
+          <td>{{people.age}}</td>
+          <td>{{people.leisure}}</td>
+          <td {% if people.age >= 18 %} style = "background-color:green;"  {%endif%}}
+            {% if people.age < 18 %} style = "background-color:red;"  {%endif%}}>
+            {% if people.age >= 18 %}
+            👍
+            {%else %}
+            👎
+            {%endif %}
+          </td>
+          
+        </tr>
+        {%endfor %}
+      </table>
+
+    <script>
+        console.log("Hey Django")
+    </script>
+</body>
+</html>
