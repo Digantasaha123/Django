@@ -1,17 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django template Engine</title>
-    <h1>This page is loaded through django Server</h1>
-    <style>
-        table, th,td {
-            border: 1px solid black;
-        }
-    </style>
-</head>
-<body>
+  {% extends "base.html" %}
+  {%block start%}
     <h2>Hello I am Diganta <br>Trying to learn Django from Scratch</h2>
     <h3>Here I am just a <b><h1>Begginer</h1></b></h3>
     <h1>Let me try to use a table to fetch data from backend</h1>
@@ -42,9 +30,14 @@
         </tr>
         {%endfor %}
       </table>
-
-    <script>
-        console.log("Hey Django")
-    </script>
-</body>
-</html>
+      <a href="about/"> <b>About</b></a>
+      <a href="contact/"> <b>contact</b></a>
+      <br>
+      {%if 'Cucumber' in vegetables %}
+      Yes cucumber available
+      {% elif 'Tomato' in vegetables %}
+      Yes <b style = "color:red" >Tomato </b> available
+      {% else %}
+      No, Not available
+      {% endif %}
+    {%endblock%}
